@@ -8,4 +8,13 @@ package org.thougthworks.parkinglot;
  * To change this template use File | Settings | File Templates.
  */
 public class Receipt {
+    private ParkingLot parkingLot;
+
+    public Receipt(ParkingLot parkingLot) {
+        this.parkingLot = parkingLot;
+    }
+
+    public ParkingLot parking() {
+        return parkingLot;
+    }
 }

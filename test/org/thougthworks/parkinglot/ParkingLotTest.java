@@ -29,13 +29,6 @@ public class ParkingLotTest {
 
     @Test
     public void should_park_failed_if_full(){
-        Car car = new Car();
-        ParkingLot parkingLot = new ParkingLot(0);
-        assertNull(parkingLot.park(car));
-    }
-
-    @Test
-    public void should_park_failed_if_capacity_is_one_and_already_parking_a_car(){
         Car car1 = new Car();
         Car car2 = new Car();
         ParkingLot parkingLot = new ParkingLot(1);

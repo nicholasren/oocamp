@@ -3,30 +3,23 @@ package org.thougthworks.parkinglot;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by IntelliJ IDEA.
- * User: reaapi
- * Date: 3/14/12
- * Time: 7:30 PM
- * To change this template use File | Settings | File Templates.
- */
 public class Waiter {
 
+    private ParkingLotChooser chooser;
 
     public Waiter() {
+        this(new NormalParkingLotChooser());
     }
 
+    public Waiter(ParkingLotChooser chooser) {
+        this.chooser = chooser;
+    }
 
     private List<ParkingLot> parkingLots = new ArrayList<ParkingLot>();
 
     public Receipt park(Car car) {
-        for (ParkingLot lot : parkingLots) {
-            Receipt receipt = lot.park(car);
-            if (null != receipt) {
-                return receipt;
-            }
-        }
-        return null;
+        ParkingLot availableParking = chooser.choose(parkingLots);
+        return availableParking == null ? null : availableParking.park(car);
     }
 
     public Car unpark(Receipt receipt) {
@@ -39,7 +32,7 @@ public class Waiter {
         return null;
     }
 
-    public Integer availableCapacity() {
+    public Integer slots() {
         Integer availableCapacity = 0;
         for(ParkingLot lot : parkingLots){
             availableCapacity += lot.availableCapacity();

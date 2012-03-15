@@ -29,7 +29,7 @@ public class ParkingLot {
         if (availableCapacity() <= 0) {
             return null;
         } else {
-            Receipt receipt = new Receipt();
+            Receipt receipt = new Receipt(this);
             this.cars.put(receipt, car);
             return receipt;
         }

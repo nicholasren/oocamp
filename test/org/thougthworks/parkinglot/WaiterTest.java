@@ -35,7 +35,7 @@ public class WaiterTest {
         waiter.addLot(lot2);
 
         assertNotNull(waiter.park(car));
-        assertThat(waiter.availableCapacity(), is(19));
+        assertThat(waiter.slots(), is(19));
     }
 
 
