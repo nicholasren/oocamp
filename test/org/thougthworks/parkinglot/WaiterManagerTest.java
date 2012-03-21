@@ -71,24 +71,24 @@ public class WaiterManagerTest {
         assertThat(parkingLot2.availableCapacity(), is(1) );
     }
 
-//    @Test
-//    public void should_directly_if_all_waiters_are_not_available(){
-//        Waiter waiter = new Waiter();
-//        ParkingLot parkingLot = new ParkingLot(0);
-//        waiter.addLot(parkingLot);
-//
-//        Waiter waiter2 = new Waiter();
-//        ParkingLot parkingLot2 = new ParkingLot(0);
-//        waiter2.addLot(parkingLot2);
-//
-//        waiterManager.addWaiter(waiter);
-//        waiterManager.addWaiter(waiter2);
-//        ParkingLot parkingLot3 = new ParkingLot(3);
-//        waiterManager.addLot(parkingLot3);
-//
-//        Car car = new Car();
-//        Receipt receipt = waiterManager.lazyPark(car);
-//        assertNotNull(receipt);
-//        assertThat(parkingLot3.availableCapacity(), is(1) );
-//    }
+    @Test
+    public void should_directly_if_all_waiters_are_not_available(){
+        Waiter waiter = new Waiter();
+        ParkingLot parkingLot = new ParkingLot(0);
+        waiter.addLot(parkingLot);
+
+        Waiter waiter2 = new Waiter();
+        ParkingLot parkingLot2 = new ParkingLot(0);
+        waiter2.addLot(parkingLot2);
+
+        waiterManager.addWaiter(waiter);
+        waiterManager.addWaiter(waiter2);
+        ParkingLot parkingLot3 = new ParkingLot(3);
+        waiterManager.addLot(parkingLot3);
+
+        Car car = new Car();
+        Receipt receipt = waiterManager.park(car);
+        assertNotNull(receipt);
+        assertThat(parkingLot3.availableCapacity(), is(2) );
+    }
 }

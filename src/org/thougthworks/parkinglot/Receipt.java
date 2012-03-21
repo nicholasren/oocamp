@@ -14,6 +14,9 @@ public class Receipt {
         this.parkingLot = parkingLot;
     }
 
+    public Receipt() {
+    }
+
     public ParkingLot parking() {
         return parkingLot;
     }
