@@ -13,7 +13,5 @@ public interface ParkingFacility {
 
     Receipt park(Car car);
 
-    String report(String indent);
-
     String report(int depth);
 }

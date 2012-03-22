@@ -26,7 +26,7 @@ public class ParkingReportTest {
         ParkingLot parkingLot = new ParkingLot(3);
         parkingLot.park(new Car());
         waiter.addLot(parkingLot);
-        String reportResult = waiter.toString();
+        String reportResult = waiter.report(new Waiter.Report().getDepth());
 
         assertThat(reportResult, is("Waiter:\n  ParkingLot:1/3"));
     }

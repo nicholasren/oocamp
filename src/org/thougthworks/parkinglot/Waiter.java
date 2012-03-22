@@ -22,17 +22,9 @@ public class Waiter implements ParkingFacility{
         return availableParking == null ? null : availableParking.park(car);
     }
 
-    @Override
-    public String toString() {
-        return report(0);
-    }
-
-    public String report(String indent) {
-        return report(0);
-    }
-
     public String report(int depth) {
         StringBuilder reportBuilder = new StringBuilder();
+        
         indent(depth, reportBuilder);
 
         reportBuilder.append("Waiter").append(":").append("\n");
@@ -43,10 +35,26 @@ public class Waiter implements ParkingFacility{
         }
         return reportBuilder.toString();
     }
+    
+    public String report(Report report){
+        return report(report.getDepth());
+    }
 
     private void indent(int depth, StringBuilder reportBuilder) {
         for(int i=0; i< depth; i++){
             reportBuilder.append("  ");
+        }
+    }
+
+    static class Report{
+        private int depth;
+
+        Report() {
+            this.depth = 0;
+        }
+
+        public int getDepth() {
+            return depth;
         }
     }
 

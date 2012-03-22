@@ -47,7 +47,7 @@ public class ParkingLot implements ParkingFacility {
         return report(indent);
     }
 
-    public String report(String indent) {
+    private String report(String indent) {
         return report(0);
     }
 

@@ -26,10 +26,6 @@ public class WaiterManager extends Waiter {
 
     }
 
-    public String report(String indent) {
-        return report(0);
-    }
-
     public String report(int depth) {
         StringBuilder reportBuilder = new StringBuilder();
         for(int i=0; i < depth; i++){
